@@ -192,7 +192,7 @@ class ParallelDownloader extends RemoteFilesystem
 
             if (5 <= $progress - $state->lastProgress || 1 <= $progressTime - $state->lastUpdate) {
                 $state->lastProgress = $progress;
-                $this->io->overwriteError(sprintf(' (<comment>%d%%</comment>)', $progress), false);
+                $this->io->overwriteError(sprintf(' (<comment>%d%%</comment>)', min(100, $progress)), false);
                 $state->lastUpdate = microtime(true);
             }
         }
